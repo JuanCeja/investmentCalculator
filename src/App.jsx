@@ -12,6 +12,8 @@ function App() {
     duration: 10
   });
 
+  const isUserInputValid = Object.values(userInput).every(value => value > 0);
+
   const [results, setResults] = useState({});
 
   const handleChange = (inputIdentifier, newValue) => {
@@ -28,7 +30,11 @@ function App() {
     <>
       <Header />
       <UserInput userInput={userInput} onUserInputChange={handleChange} />
-      <Results results={results} userInput={userInput}/>
+      {
+        isUserInputValid
+          ? <Results results={results} userInput={userInput} />
+          : <p className="center">Input values must be greater zero.</p>
+      }
     </>
   )
 }
