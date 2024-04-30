@@ -1,10 +1,21 @@
 import React from 'react'
+import { calculateInvestmentResults } from '../util/investment';
 
-const Results = ({userInput}) => {
-    console.log(userInput)
+const Results = ({ userInput }) => {
+    const resultsData = calculateInvestmentResults(userInput);
 
     return (
-        <p>Results</p>
+        <table id='result'>
+            <thead>
+                <tr>
+                    <th>Year</th>
+                    <th>Investment</th>
+                    <th>Interest (Year)</th>
+                    <th>Total Interest</th>
+                    <th>Invested Capital</th>
+                </tr>
+            </thead>
+        </table>
     )
 }
 
